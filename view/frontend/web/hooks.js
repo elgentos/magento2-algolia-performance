@@ -1,21 +1,17 @@
-algolia.registerHook('beforeAutocompleteOptions', function(options)  {
-    if (algoliaConfig.minimum_characters) {
-        options.minLength = algoliaConfig.minimum_characters;
-    }
+algolia.registerHook("beforeAutocompleteOptions", function (options) {
+  if (algoliaConfig.minimum_characters) {
+    options.minLength = algoliaConfig.minimum_characters;
+  }
 
-    return options;
+  return options;
 });
 
-algolia.registerHook('beforeAutocompleteSources', function(sources)  {
+algolia.registerHook("beforeAutocompleteSources", function (sources) {
+  if (algoliaConfig.debounce_amount) {
+    sources.map((source) => {
+      source.debounce = algoliaConfig.debounce_amount;
+    });
+  }
 
-    if (algoliaConfig.debounce_amount) {
-        sources.map((source) => {
-            source.debounce = '500';
-        })
-    }
-
-
-    return sources;
+  return sources;
 });
-
-
