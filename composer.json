@@ -1,0 +1,16 @@
+{
+  "name": "elgentos/algolia-performance",
+  "description": "Performance settings for Algolia to set a debounce and minimum amount of characters",
+  "type": "magento2-module",
+  "license": ["MIT"],
+  "version": "1.0.0",
+  "require": {
+    "algolia/algoliasearch-magento-2": ">=1.13.3"
+  },
+  "autoload": {
+    "files": [ "registration.php" ],
+    "psr-4": {
+      "Elgentos\\AlgoliaPerformance\\": ""
+    }
+  }
+}
