@@ -26,13 +26,14 @@ class UpdateFrontendConfiguration implements ObserverInterface
     {
 
         $storeId = $this->storeManager->getStore()->getStoreId();
+        $configuration = $observer->getData('configuration');
 
-        return array_replace(
-            (array)$observer->getData('configuration'),
-            [
-                'debounce_amount' => $this->config->getDebounceMilliseconds($storeId),
-                'minimum_characters' => $this->config->getMinimumCharacters($storeId)
-            ]
-        );
+        if ($this->config->getDebounceMilliseconds($storeId)) {
+            $configuration['debounce_amount'] = $this->config->getDebounceMilliseconds($storeId);
+        }
+
+        if ($this->config->getMinimumCharacters($storeId)) {
+            $configuration['minimum_characters'] = $this->config->getMinimumCharacters($storeId);
+        }
     }
 }
