@@ -5,7 +5,7 @@
             <performance_settings>
                 <min_characters />
                 <debounce />
-            </general>
-        </elgentos_brand_categories>
+            </performance_settings>
+        </algoliasearch_performance_settings>
     </default>
 </config>
