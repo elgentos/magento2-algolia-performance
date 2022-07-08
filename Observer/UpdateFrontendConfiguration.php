@@ -6,28 +6,33 @@ use Elgentos\AlgoliaPerformance\Model\Config;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Magento\Store\Model\StoreManagerInterface;
 
 class UpdateFrontendConfiguration implements ObserverInterface
 {
 
     private Config $config;
+    protected StoreManagerInterface $storeManager;
 
     public function __construct(
-        Config $config
+        Config $config,
+        StoreManagerInterface $storeManager
     ) {
         $this->config = $config;
+        $this->storeManager = $storeManager;
     }
 
     public function execute(Observer $observer)
     {
-        $configuration = $observer->getData('configuration');
 
-        if ($this->config->getDebounceMilliseconds()) {
-            $configuration['debounce_amount'] = $this->config->getDebounceMilliseconds();
-        }
+        $storeId = $this->storeManager->getStore()->getStoreId();
 
-        if ($this->config->getMinimumCharacters()) {
-            $configuration['minimum_characters'] = $this->config->getMinimumCharacters();
-        }
+        return array_replace(
+            (array)$observer->getData('configuration'),
+            [
+                'debounce_amount' => $this->config->getDebounceMilliseconds($storeId),
+                'minimum_characters' => $this->config->getMinimumCharacters($storeId)
+            ]
+        );
     }
 }
