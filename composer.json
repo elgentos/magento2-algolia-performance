@@ -1,5 +1,5 @@
 {
-  "name": "elgentos/algolia-performance",
+  "name": "elgentos/magento2-algolia-performance",
   "description": "Performance settings for Algolia to set a debounce and minimum amount of characters",
   "type": "magento2-module",
   "license": ["MIT"],

@@ -1,0 +1,11 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <algoliasearch_performance_settings>
+            <performance_settings>
+                <min_characters />
+                <debounce />
+            </general>
+        </elgentos_brand_categories>
+    </default>
+</config>

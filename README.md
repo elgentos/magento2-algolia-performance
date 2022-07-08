@@ -5,7 +5,7 @@ This Magento 2 module makes it possible to set a debounce and a minimum characte
 ## Installation
 
 ```
-composer require elgentos/algolia-performance
+composer require elgentos/magento2-algolia-performance
 php bin/magento module:enable Elgentos_AlgoliaPerformance
 php bin/magento setup:upgrade
 ```
