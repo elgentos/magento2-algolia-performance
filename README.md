@@ -1,3 +1,5 @@
+**PLEASE NOTE: Only works with algolia/algoliasearch-magento-2 <= 3.7**
+
 # elgentos/magento2-algolia-performance
 
 This Magento 2 module makes it possible to set a debounce and a minimum character amount for Algolia Autocomplete
